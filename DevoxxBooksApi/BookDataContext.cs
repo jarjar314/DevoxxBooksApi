@@ -1,11 +1,16 @@
 using System.Collections.Generic;
 using DevoxxBooksApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DevoxxBooksApi
 {
-    public static class BookDataContext
+    public class BookDataContext : DbContext
     {
-        public static List<BookModel> Books = new List<BookModel>();
+        public DbSet<BookModel> Books {get; set;}
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Filename=./devoxxbooksapi.sqlite");
+        }
     }
 }

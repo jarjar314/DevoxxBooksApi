@@ -42,6 +42,12 @@ namespace DevoxxBooksApi
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            using (var context = new BookDataContext())
+            {
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
+            }
         }
     }
 }
