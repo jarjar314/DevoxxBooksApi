@@ -1,0 +1,14 @@
+/Users/plouiserre/OneDrive/Devoxx/Tutoriel/Tutoriel3/DevoxxBooksApi/DevoxxBooksApi/bin/Debug/netcoreapp2.1/DevoxxBooksApi.deps.json
+/Users/plouiserre/OneDrive/Devoxx/Tutoriel/Tutoriel3/DevoxxBooksApi/DevoxxBooksApi/bin/Debug/netcoreapp2.1/DevoxxBooksApi.runtimeconfig.json
+/Users/plouiserre/OneDrive/Devoxx/Tutoriel/Tutoriel3/DevoxxBooksApi/DevoxxBooksApi/bin/Debug/netcoreapp2.1/DevoxxBooksApi.runtimeconfig.dev.json
+/Users/plouiserre/OneDrive/Devoxx/Tutoriel/Tutoriel3/DevoxxBooksApi/DevoxxBooksApi/bin/Debug/netcoreapp2.1/DevoxxBooksApi.dll
+/Users/plouiserre/OneDrive/Devoxx/Tutoriel/Tutoriel3/DevoxxBooksApi/DevoxxBooksApi/bin/Debug/netcoreapp2.1/DevoxxBooksApi.pdb
+/Users/plouiserre/OneDrive/Devoxx/Tutoriel/Tutoriel3/DevoxxBooksApi/DevoxxBooksApi/obj/Debug/netcoreapp2.1/DevoxxBooksApi.csprojAssemblyReference.cache
+/Users/plouiserre/OneDrive/Devoxx/Tutoriel/Tutoriel3/DevoxxBooksApi/DevoxxBooksApi/obj/Debug/netcoreapp2.1/DevoxxBooksApi.csproj.CoreCompileInputs.cache
+/Users/plouiserre/OneDrive/Devoxx/Tutoriel/Tutoriel3/DevoxxBooksApi/DevoxxBooksApi/obj/Debug/netcoreapp2.1/DevoxxBooksApi.RazorAssemblyInfo.cache
+/Users/plouiserre/OneDrive/Devoxx/Tutoriel/Tutoriel3/DevoxxBooksApi/DevoxxBooksApi/obj/Debug/netcoreapp2.1/DevoxxBooksApi.RazorAssemblyInfo.cs
+/Users/plouiserre/OneDrive/Devoxx/Tutoriel/Tutoriel3/DevoxxBooksApi/DevoxxBooksApi/obj/Debug/netcoreapp2.1/DevoxxBooksApi.AssemblyInfoInputs.cache
+/Users/plouiserre/OneDrive/Devoxx/Tutoriel/Tutoriel3/DevoxxBooksApi/DevoxxBooksApi/obj/Debug/netcoreapp2.1/DevoxxBooksApi.AssemblyInfo.cs
+/Users/plouiserre/OneDrive/Devoxx/Tutoriel/Tutoriel3/DevoxxBooksApi/DevoxxBooksApi/obj/Debug/netcoreapp2.1/DevoxxBooksApi.RazorTargetAssemblyInfo.cache
+/Users/plouiserre/OneDrive/Devoxx/Tutoriel/Tutoriel3/DevoxxBooksApi/DevoxxBooksApi/obj/Debug/netcoreapp2.1/DevoxxBooksApi.dll
+/Users/plouiserre/OneDrive/Devoxx/Tutoriel/Tutoriel3/DevoxxBooksApi/DevoxxBooksApi/obj/Debug/netcoreapp2.1/DevoxxBooksApi.pdb
