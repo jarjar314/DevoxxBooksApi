@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using DevoxxBooksApi.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DevoxxBooksApi.Controllers
 {
@@ -11,35 +13,33 @@ namespace DevoxxBooksApi.Controllers
     public class BooksController : Controller
     {
         [HttpGet]
-        public IEnumerable<BookModel> GetAll()
+        public async Task<IEnumerable<BookModel>> GetAll()
         {
-             List<BookModel> books = new List<BookModel>();
+            List<BookModel> books = new List<BookModel>();
             using (var context = new BookDataContext()){
-                foreach(var book in context.Books){
-                    books.Add(book);
-                }
+                books = await context.Books.ToListAsync();
             }
             return books;
         }
 
         [HttpGet]
-        public  BookModel Get(int bookId)
+        public async  Task<BookModel> Get(int bookId)
         {
             BookModel book = new BookModel();
             using (var context = new BookDataContext()){
-                book = context.Books.FirstOrDefault(o => o.BookId == bookId);
+                book = await context.Books.FirstOrDefaultAsync(o => o.BookId == bookId);
             }
             return book;
         }
 
         [HttpPost]
-        public string Create(BookModel book)
+        public async Task<string> Create(BookModel book)
         {
             try{
 
                 using(var context = new BookDataContext()){
-                   context.Books.Add(book);
-                   context.SaveChanges();
+                   await context.Books.AddAsync(book);
+                   await context.SaveChangesAsync();
                   
                 }
                 return "OK";
@@ -50,13 +50,13 @@ namespace DevoxxBooksApi.Controllers
         }
 
         [HttpDelete]
-        public string Delete(int bookId)
+        public async Task<string> Delete(int bookId)
         {
             try{
                 using(var context = new BookDataContext()){
-                    BookModel book = context.Books.FirstOrDefault(o => o.BookId == bookId);
+                    BookModel book = await context.Books.FirstOrDefaultAsync(o => o.BookId == bookId);
                     context.Books.Remove(book);
-                    context.SaveChanges();
+                    await context.SaveChangesAsync();
                 }
                 return "OK";
             }
