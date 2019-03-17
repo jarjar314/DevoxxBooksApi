@@ -10,25 +10,38 @@ namespace DevoxxBooksApi.Controllers
     [ApiController]
     public class BooksController : Controller
     {
-
-
         [HttpGet]
         public IEnumerable<BookModel> GetAll()
         {
-            return BookDataContext.Books;
+             List<BookModel> books = new List<BookModel>();
+            using (var context = new BookDataContext()){
+                foreach(var book in context.Books){
+                    books.Add(book);
+                }
+            }
+            return books;
         }
 
         [HttpGet]
         public  BookModel Get(int bookId)
         {
-            return BookDataContext.Books.FirstOrDefault(o => o.BookId == bookId);
+            BookModel book = new BookModel();
+            using (var context = new BookDataContext()){
+                book = context.Books.FirstOrDefault(o => o.BookId == bookId);
+            }
+            return book;
         }
 
         [HttpPost]
         public string Create(BookModel book)
         {
             try{
-                BookDataContext.Books.Add(book);
+
+                using(var context = new BookDataContext()){
+                   context.Books.Add(book);
+                   context.SaveChanges();
+                  
+                }
                 return "OK";
             }
             catch(Exception ex){
@@ -40,7 +53,11 @@ namespace DevoxxBooksApi.Controllers
         public string Delete(int bookId)
         {
             try{
-                BookDataContext.Books.RemoveAll(o => o.BookId == bookId);
+                using(var context = new BookDataContext()){
+                    BookModel book = context.Books.FirstOrDefault(o => o.BookId == bookId);
+                    context.Books.Remove(book);
+                    context.SaveChanges();
+                }
                 return "OK";
             }
             catch(Exception ex){

@@ -1,9 +1,11 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace DevoxxBooksApi.Models
 {
     public class BookModel
     {
+        [Key]
         public int BookId { get; set; }
 
         public string BookTitle { get; set; }
