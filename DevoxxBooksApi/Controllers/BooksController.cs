@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DevoxxBooksApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,34 +11,42 @@ namespace DevoxxBooksApi.Controllers
     [ApiController]
     public class BooksController : Controller
     {
+        //Si vous voulez être en asynchrone la signature de votre méthode doit être 
+        //public async Task<Ienumerable<Model>> GetAll() où Model est le type de votre classe model
+        //sinon remplacer object par le type de votre model
         [HttpGet]
-        public async Task<IEnumerable<BookModel>> GetAll()
+        public  IEnumerable<object> GetAll()
         {
-            List<BookModel> books = new List<BookModel>();
+            //à l'intérieur de celui appelez soit simplement seulement votre DbSet de votre context 
+            //soit en plus vous utilisez la méthode ToListAsync
             using (var context = new BookDataContext()){
-                books = await context.Books.ToListAsync();
+                
             }
-            return books;
+            return null;
         }
 
         [HttpGet]
-        public async  Task<BookModel> Get(int bookId)
+        //en asynchrone public async  Task<Model> Get(int bookId) où Model est le type de votre model
+        public object Get(int bookId)
         {
-            BookModel book = new BookModel();
+            //vous devez parmi votre collection trouvez celui qui a le bon id 
+            //soit par un foreach 
+            //soit par firstordefault de linq
             using (var context = new BookDataContext()){
-                book = await context.Books.FirstOrDefaultAsync(o => o.BookId == bookId);
+               
             }
-            return book;
+            return null;
         }
 
         [HttpPost]
-        public async Task<string> Create(BookModel book)
+        //en asynchrone public async  Task<BookModel> Create(Model book) où Model est le type de votre model
+        public string Create(object book)
         {
             try{
-
+                //vous devez utilisez dans le using la méthode add de votre context et savechanges 
+                //si vous êtes en asynchrone utilisez addasync et savechangesasync
                 using(var context = new BookDataContext()){
-                   await context.Books.AddAsync(book);
-                   await context.SaveChangesAsync();
+                  
                   
                 }
                 return "OK";
@@ -50,13 +57,15 @@ namespace DevoxxBooksApi.Controllers
         }
 
         [HttpDelete]
-        public async Task<string> Delete(int bookId)
+        // en asynchrone public async Task<string> Delete(int bookId)
+        public string Delete(int bookId)
         {
             try{
+                //vous devez utilisez la même méthode que dans le get pour trouver le livre à supprimer
+                //utilisez ensuite la méthode Remove de votre contexte
+                //utilisez savechanges si vous êtes en synchrone et savechangesasync en asynchrone
                 using(var context = new BookDataContext()){
-                    BookModel book = await context.Books.FirstOrDefaultAsync(o => o.BookId == bookId);
-                    context.Books.Remove(book);
-                    await context.SaveChangesAsync();
+                    
                 }
                 return "OK";
             }

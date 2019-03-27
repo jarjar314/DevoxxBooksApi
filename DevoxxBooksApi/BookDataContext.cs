@@ -1,12 +1,11 @@
 using System.Collections.Generic;
-using DevoxxBooksApi.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DevoxxBooksApi
 {
     public class BookDataContext : DbContext
     {
-        public DbSet<BookModel> Books {get; set;}
+        //à créer un DbSet de votre model
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
